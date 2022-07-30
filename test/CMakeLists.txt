@@ -1,0 +1,7 @@
+file(GLOB_RECURSE test_list "*_test.cpp")
+add_executable(lazy_vector_tests ${test_list})
+target_include_directories(lazy_vector_tests PRIVATE ../include)
+target_link_libraries(lazy_vector_tests PRIVATE project_warnings)
+target_link_libraries(lazy_vector_tests PUBLIC CONAN_PKG::doctest)
+target_link_libraries(lazy_vector_tests PRIVATE project_options)
+add_test(NAME lazy_vector_tests COMMAND lazy_vector_tests)
